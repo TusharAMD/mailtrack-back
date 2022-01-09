@@ -20,7 +20,7 @@ def explorer(username,path):
     mydb = myclient["Mailtrack"]
     mycol = mydb["Emailtrack"]
 
-    mycol.update({'filename':path}, {'$push': {'opened': str(datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S"))}}, upsert = True)
+    mycol.find_one_and_update({'filename':path}, {'$push': {'opened': str(datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S"))}}, upsert = True)
     
     ip = get('https://api.ipify.org').text
     print ('My public IP address is:', ip)
