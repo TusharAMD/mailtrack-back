@@ -11,6 +11,7 @@ app = Flask(__name__, static_url_path='/static')
 cors = CORS(app)
 
 @app.route('/explorer/<username>/<path>',methods=["GET","POST"])
+@cross_origin()
 def explorer(username,path):
     
     ip = get('https://api.ipify.org').text
@@ -18,7 +19,9 @@ def explorer(username,path):
     print("Path Name:", path,"\nUserName:", username)
     return send_from_directory('static', f"{username}/{path}")
 
-@app.route('/sendemail',methods=["GET","POST"])    
+
+@app.route('/sendemail',methods=["GET","POST"]) 
+@cross_origin()   
 def sendemail():
     sender_email = request.json["useremail"]
     receiver_email = request.json["recemail"]
