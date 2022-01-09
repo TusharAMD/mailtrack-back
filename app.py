@@ -8,6 +8,7 @@ from email.mime.multipart import MIMEMultipart
 import os
 from PIL import Image
 import datetime
+import pymongo
 
 app = Flask(__name__, static_url_path='/static')
 cors = CORS(app)
@@ -73,6 +74,14 @@ def sendemail():
                 sender_email, receiver_email, message.as_string()
             )
         print(request.json)
+        
+        myclient = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.wonbr.mongodb.net/Mailtrack?retryWrites=true&w=majority")
+        mydb = myclient["Mailtrack"]
+        mycol = mydb["Emailtrack"]
+        mydict={"sender":sender_email,"receiver":receiver_email,"filename":filename,"opened":[]}
+        x = mycol.insert_one(mydict)
+        
+        
         return jsonify({1:1})
     return jsonify({1:1})
 if __name__ == "__main__":
