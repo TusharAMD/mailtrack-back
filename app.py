@@ -1,6 +1,7 @@
 from flask import Flask, request, send_from_directory,jsonify
 import socket
 from requests import get
+from flask_cors import CORS
 
 app = Flask(__name__, static_url_path='/static')
 cors = CORS(app)
