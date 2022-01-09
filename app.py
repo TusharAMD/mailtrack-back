@@ -3,7 +3,7 @@ import socket
 from requests import get
 
 app = Flask(__name__, static_url_path='/static')
-
+cors = CORS(app)
 
 @app.route('/explorer/<username>/<path>',methods=["GET","POST"])
 def explorer(username,path):
