@@ -45,7 +45,7 @@ def dashdata():
             dicti["sender"]=ele["sender"]
             dicti["receiver"]=ele["receiver"]
             dicti["opened"]=ele["opened"]
-            li.append({ele["sender"],ele["receiver"],ele["opened"]})
+            li.append({"sender":ele["sender"],"receiver":ele["receiver"],"opened":ele["opened"]})
             dicti={}
         return jsonify ({"res":li})
 
