@@ -42,8 +42,7 @@ def sendemail():
             </p>
           </body>
         </html>
-        """
-
+        
         # Turn these into plain/html MIMEText objects
         part1 = MIMEText(text, "plain")
         part2 = MIMEText(html, "html")
