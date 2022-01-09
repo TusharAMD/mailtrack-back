@@ -16,6 +16,6 @@ def explorer(username,path):
 @app.route('/sendemail',methods=["GET","POST"])    
 def sendemail():
     print(request.json)
-
+    return jsonify({1:1})
 if __name__ == "__main__":
     app.run(debug=True)
