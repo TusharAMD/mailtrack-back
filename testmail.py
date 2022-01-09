@@ -4,7 +4,7 @@ from email.mime.multipart import MIMEMultipart
 
 sender_email = "tusharheroku@gmail.com"
 receiver_email = "tusharvamanamdoskar@gmail.com"
-password = "tttvvvaaa123"
+password = "!@password123@"
 
 message = MIMEMultipart("alternative")
 message["Subject"] = "multipart test"

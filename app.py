@@ -28,6 +28,25 @@ def explorer(username,path):
     return send_from_directory('static', f"{username}/{path}")
 
 
+@app.route('/dashdata',methods=["GET","POST"])
+@cross_origin()
+def dashdata(username,path):
+    myclient = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.wonbr.mongodb.net/Mailtrack?retryWrites=true&w=majority")
+    mydb = myclient["Mailtrack"]
+    mycol = mydb["Emailtrack"]
+    
+    if request.method=="POST":
+        x = mycol.find({request.json["email"]})
+        for ele in x:
+            print(x)
+    
+    if request.method=='POST':
+        pass
+    
+    return jsonify({1:1})
+
+
+
 @app.route('/sendemail',methods=["GET","POST"]) 
 @cross_origin()   
 def sendemail():
