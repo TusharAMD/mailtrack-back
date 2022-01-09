@@ -36,7 +36,7 @@ def dashdata():
     mycol = mydb["Emailtrack"]
     
     if request.method=="POST":
-        print(request.json,"Dash BOard Request")
+        print(request.json,"Dash Board Request")
         x = mycol.find({"sender":request.json["email"]})
         li=[]
         dicti = {}
@@ -45,7 +45,8 @@ def dashdata():
             dicti["sender"]=ele["sender"]
             dicti["receiver"]=ele["receiver"]
             dicti["opened"]=ele["opened"]
-            li.append(dicti)
+            li.append({ele["sender"],ele["receiver"],ele["opened"]})
+            dicti={}
         return jsonify ({"res":li})
 
     return jsonify({1:1})
