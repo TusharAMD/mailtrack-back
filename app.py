@@ -30,7 +30,7 @@ def explorer(username,path):
 
 @app.route('/dashdata',methods=["GET","POST"])
 @cross_origin()
-def dashdata(username,path):
+def dashdata():
     myclient = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.wonbr.mongodb.net/Mailtrack?retryWrites=true&w=majority")
     mydb = myclient["Mailtrack"]
     mycol = mydb["Emailtrack"]
