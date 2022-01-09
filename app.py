@@ -29,7 +29,7 @@ def sendemail():
     message["From"] = sender_email
     message["To"] = receiver_email
     
-    print(os.path.isdir(f"static\{useremail}") )
+    print(os.path.isdir(f"static\{request.json["useremail"]}") )
     
     # Create the plain-text and HTML version of your message
     text = request.json["mailcontent"]
