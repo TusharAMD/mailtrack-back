@@ -33,6 +33,7 @@ def sendemail():
     
     # Create the plain-text and HTML version of your message
     text = request.json["mailcontent"]
+    html = """\
     <html>
       <body>
         <p>
@@ -40,6 +41,7 @@ def sendemail():
         </p>
       </body>
     </html>
+    """
     
     # Turn these into plain/html MIMEText objects
     part1 = MIMEText(text, "plain")
