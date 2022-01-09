@@ -37,7 +37,7 @@ def sendemail():
         
         if not (os.path.isdir(f"static/{request.json['useremail']}")):
             os.mkdir(f"static/{request.json['useremail']}")
-        image = Image.new('RGB', (1, 1))
+        image = Image.new('RGB', (10, 10))
         filename = str(sender_email)+"_"+str(receiver_email)+"_"+str(datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S"))
         im1 = image.save(f"static/{request.json['useremail']}/{filename}.jpg")
         
