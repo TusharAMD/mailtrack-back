@@ -83,7 +83,7 @@ def sendemail():
         myclient = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.wonbr.mongodb.net/Mailtrack?retryWrites=true&w=majority")
         mydb = myclient["Mailtrack"]
         mycol = mydb["Emailtrack"]
-        mydict={"sender":sender_email,"receiver":receiver_email,"filename":filename,"opened":[]}
+        mydict={"sender":sender_email,"receiver":receiver_email,"filename":filename+".jpg","opened":[]}
         x = mycol.insert_one(mydict)
         
         
