@@ -16,6 +16,11 @@ cors = CORS(app)
 @app.route('/explorer/<username>/<path>',methods=["GET","POST"])
 @cross_origin()
 def explorer(username,path):
+    myclient = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.wonbr.mongodb.net/Mailtrack?retryWrites=true&w=majority")
+    mydb = myclient["Mailtrack"]
+    mycol = mydb["Emailtrack"]
+
+    mycol.update({'filename':path}, {'$push': {'opened': str(datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S"))}}, upsert = True)
     
     ip = get('https://api.ipify.org').text
     print ('My public IP address is:', ip)
