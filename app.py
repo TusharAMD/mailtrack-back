@@ -40,10 +40,10 @@ def dashdata():
         x = mycol.find({"sender":request.json["email"]})
         dicti = []
         for ele in x:
-            print(x["sender"],x["receiver"],x["opened"])
-            dicti["sender"]=x["sender"]
-            dicti["receiver"]=x["receiver"]
-            dicti["opened"]=x["opened"]
+            print(ele["sender"],ele["receiver"],ele["opened"])
+            dicti["sender"]=ele["sender"]
+            dicti["receiver"]=ele["receiver"]
+            dicti["opened"]=ele["opened"]
         return jsonify ({dicti})
 
     return jsonify({1:1})
