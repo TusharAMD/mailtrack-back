@@ -36,7 +36,7 @@ def dashdata():
     mycol = mydb["Emailtrack"]
     
     if request.method=="POST":
-        x = mycol.find({request.json["email"]})
+        x = mycol.find({"sender":request.json["email"]})
         for ele in x:
             print(x)
     
