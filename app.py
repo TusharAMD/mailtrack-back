@@ -38,12 +38,14 @@ def dashdata():
     if request.method=="POST":
         print(request.json,"Dash BOard Request")
         x = mycol.find({"sender":request.json["email"]})
+        dicti = []
         for ele in x:
-            print(x)
-    
-    if request.method=='POST':
-        pass
-    
+            print(x["sender"],x["receiver"],x["opened"])
+            dicti["sender"]=x["sender"]
+            dicti["receiver"]=x["receiver"]
+            dicti["opened"]=x["opened"]
+        return jsonify ({dicti})
+
     return jsonify({1:1})
 
 
