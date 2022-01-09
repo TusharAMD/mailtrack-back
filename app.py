@@ -13,5 +13,9 @@ def explorer(username,path):
     print("Path Name:", path,"\nUserName:", username)
     return send_from_directory('static', f"{username}/{path}")
 
+@app.route('/sendemail',methods=["GET","POST"])    
+def sendemail():
+    print(request.json)
+
 if __name__ == "__main__":
     app.run(debug=True)
